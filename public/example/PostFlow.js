@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Addtodo extends Component {
+class PostFlow extends Component {
   state = {
-    title: '',
+    posts: [],
   };
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.Addtodo(this.state.title);
+    this.props.Addposts(this.state.title);
     this.setState({
       title: '',
     });
@@ -31,23 +31,25 @@ class Addtodo extends Component {
           name='title'
           onChange={this.onChange}
           value={this.state.title}
-          placeholder='Add Stuff You Need To Do Fool!'
+          placeholder='Name it!'
           style={{
             flex: '10',
             padding: '5px',
           }}
         />
-        <input
+
+        <textarea
           type='text'
           name='body'
           onChange={this.onChange}
           value={this.state.body}
-          placeholder='Add Stuff You Need To Do Fool!'
+          placeholder='Let It Flow Like Water!'
           style={{
             flex: '10',
             padding: '5px',
           }}
         />
+
         <input
           type='Submit'
           name='Submit'
@@ -62,4 +64,4 @@ class Addtodo extends Component {
   }
 }
 
-export default Addtodo;
+export default PostFlow;

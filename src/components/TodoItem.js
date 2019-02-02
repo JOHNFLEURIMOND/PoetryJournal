@@ -2,30 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class TodoItem extends Component {
-  getStyle = ()=> {
-    return {
-      borderBottom: '1px #ccc dotted',
-      padding: '10 px ',
-      margin: '3px',
-      background: '#f4f4f4',
-      textDecoration: this.props.todo.completed ? 'line-through' : 'none',
-    };
-  };
 
   render() {
-    const { id, title } = this.props.todo;
+    const { id, title, body } = this.props.posts;
 
     return (
-      <div style={this.getStyle()}>
-        <p>
-     {title}{' '}
-          <button
-            style={btnStyle}
-            onClick={this.props.deleteTodo.bind(this, id)}
-          >
-            X{' '}
-          </button>{' '}
-        </p>{' '}
+      <div
+        className='card border-danger mb-3 auto'
+        style={{ maxWidth: '10rem;' }}
+      >
+        <div className='card-header text-center'>{title}</div>
+        <div className='card-body'>
+          <p className='card-text text-center'>{body}</p>
+          <button type='button' style={btnStyle} onClick={this.props.deleteTodo.bind(this, id)} className='btn btn-outline-danger'>X</button>{' '}
+        </div>
       </div>
     );
   }
@@ -39,10 +29,6 @@ TodoItem.PropTypes = {
 const btnStyle = {
   background: '#ff0000',
   color: '#fff',
-  border: 'none',
-  padding: '1.5px 3px',
-  borderRadius: '50%',
-  cursor: 'pointer',
   float: 'right',
 };
 

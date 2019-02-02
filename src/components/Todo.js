@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 
 class Todo extends Component {
   render() {
-    return this.props.todos.map(todo => (
+    return this.props.posts.map(posts => (
       <TodoItem
-        key={todo.id}
+        key={posts.id}
         deleteTodo={this.props.deleteTodo}
-        todo={todo}
+        posts={posts}
       />
     ));
   }

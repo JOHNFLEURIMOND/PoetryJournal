@@ -8,30 +8,31 @@ import './App.css';
 
 class App extends Component {
   state = {
-    todos: [],
+    posts: [],
   };
 
   componentDidMount() {
     axios
-      .get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .get('https://jsonplaceholder.typicode.com/posts?_limit=10')
       .then(res =>
         this.setState({
-          todos: res.data,
+          posts: res.data,
         })
       );
   }
+
 
   // Delete Todo
   deleteTodo = id => {
     axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`).then(res =>
       this.setState({
-        todos: [...this.state.todos.filter(todo => todo.id !== id)],
+        posts: [...this.state.posts.filter(posts => posts.id !== id)],
       })
     );
   };
 
   // Add Todo
-  Addtodo = title => {
+  Addtodo = (title, body) => {
     axios
       .post('https://jsonplaceholder.typicode.com/todos?', {
         title,
@@ -39,7 +40,7 @@ class App extends Component {
       })
       .then(res =>
         this.setState({
-          todos: [...this.state.todos, res.data],
+          posts: [...this.state.posts, res.data],
         })
       );
   };
@@ -51,7 +52,7 @@ class App extends Component {
           <Header />
           <Addtodo Addtodo={this.Addtodo} />{' '}
           <Todo
-            todos={this.state.todos}
+            posts={this.state.posts}
             deleteTodo={this.deleteTodo}
           />{' '}
         </div>{' '}
