@@ -2,17 +2,21 @@ import React from 'react';
 
 function Header() {
   return (
-    <header style={headerStyle}>
-      <h1> Poetry Journal</h1>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+          <img
+            src="./favicon.ico"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+            alt=""
+          />
+          Poetry Journal
+        </a>
+      </nav>
     </header>
   );
 }
-
-const headerStyle = {
-  background: '#333',
-  color: '#fff',
-  textAlign: 'center',
-  padding: '10px',
-};
 
 export default Header;

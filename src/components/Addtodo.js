@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 
 class Addtodo extends Component {
-  state = {
-    title: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      body: '',
+    };
+  }
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.Addtodo(this.state.title);
+    this.props.Addtodo(this.state.title && this.state.body);
     this.setState({
       title: '',
+      body: '',
     });
   };
 
@@ -48,15 +53,15 @@ class Addtodo extends Component {
             padding: '5px',
           }}
         />
-        <input
-          type='Submit'
-          name='Submit'
-          value='Submit'
-          className='btn'
-          style={{
-            flex: '1',
-          }}
-        />{' '}
+        <button type='Submit'
+        name='Submit'
+        value='Submit'
+        style={{
+          flex: '1',
+        }}
+        className="btn btn-info">Submit</button>
+
+{' '}
       </form>
     );
   }
