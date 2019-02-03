@@ -11,7 +11,7 @@ class Addtodo extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.Addtodo(this.state.title && this.state.body);
+    this.props.Addtodo(this.state.title, this.state.body);
     this.setState({
       title: '',
       body: '',
@@ -47,7 +47,7 @@ class Addtodo extends Component {
           name='body'
           onChange={this.onChange}
           value={this.state.body}
-          placeholder='Add Stuff You Need To Do Fool!'
+          placeholder='Let It Flow Like Water'
           style={{
             flex: '10',
             padding: '5px',

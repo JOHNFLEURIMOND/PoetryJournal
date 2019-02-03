@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from './actions/postActions';
 import PropTypes from 'prop-types';
 
 class TodoItem extends Component {
+  componentDidMount() {
+    this.props.fetchPost();
+  }
 
   render() {
     const { id, title, body } = this.props.posts;
@@ -30,4 +35,4 @@ const btnStyle = {
   float: 'right',
 };
 
-export default TodoItem;
+export default connect(null, { fetchPosts })(TodoItem);
