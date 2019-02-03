@@ -36,7 +36,7 @@ class Addtodo extends Component {
           name='title'
           onChange={this.onChange}
           value={this.state.title}
-          placeholder='Add Stuff You Need To Do Fool!'
+          placeholder='Name It'
           style={{
             flex: '10',
             padding: '5px',

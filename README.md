@@ -9,9 +9,10 @@ This is a Simple Poetry Journal application that allows you to keep track of flo
 This application is made with React.
 
 ## Optimizations.
-Implement Redux Next.
+All done
 
 ## Lessons Learned:
+I was trying to use Redux for the state but I am going to have to try to do that with another app. I took out all the redux actions, reducers and etc.
 
 ## portfolio:
 

@@ -3,9 +3,6 @@ import Todo from './components/Todo';
 import Addtodo from './components/Addtodo';
 import Header from './components/Header';
 import axios from 'axios';
-import { Provider } from 'react-redux';
-import store from './store';
-
 import './App.css';
 
 class App extends Component {
@@ -13,9 +10,19 @@ class App extends Component {
     posts: [],
   };
 
+  componentDidMount() {
+    axios
+      .get('https://jsonplaceholder.typicode.com/posts?_limit=10')
+      .then(res =>
+        this.setState({
+          posts: res.data,
+        })
+      );
+  }
+
   // Delete Todo
   deleteTodo = id => {
-    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`).then(res =>
+    axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`).then(res =>
       this.setState({
         posts: [...this.state.posts.filter(posts => posts.id !== id)],
       })
@@ -38,7 +45,6 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
       <div className='App'>
         <div className='container'>
           <Header />
@@ -49,7 +55,6 @@ class App extends Component {
           />{' '}
         </div>{' '}
       </div>
-      </Provider>
     );
   }
 }
